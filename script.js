@@ -82,7 +82,7 @@ function showRecipe(data) {
     const ingredient = input.value;
 
     recipeContainer.innerHTML = `
-      <button class="deleteBtn">X</button>
+     <div class="positionDeleteBtn"> <button class="deleteBtn">X</button> </div>
       <div class="meal">
           <h2> ${data.title}</h2>
           <p class="search">Search: ${ingredient }</p>
@@ -92,7 +92,7 @@ function showRecipe(data) {
           <ul class="instructions"> ${data.instructions}</ul>
           <div class="img-link-container">
               <img src="${data.image}" alt="" class="img-small">
-              <a href="${data.sourceUrl}">Watch video</a>
+              <a href="${data.sourceUrl}" >Watch video</a>
           </div>
       </div>
     `
@@ -103,8 +103,9 @@ function showRecipe(data) {
 
 container.addEventListener('click', (e) => {
     if(e.target.classList.contains('deleteBtn')) {
-      e.target.parentElement.parentElement.remove()
+      e.target.parentElement.parentElement.parentElement.remove()
       document.body.style.overflow = "visible";
+      document.querySelector('.overlay').style.backgroundColor = "";
     }
   }
 )
